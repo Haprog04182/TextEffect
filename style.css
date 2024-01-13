@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+}
+:root{
+    --bg-color: #dfc1e9;
+    --text-color: #f2f2f2;
+    --shadow: rgba(187, 209, 231, 0.505);
+}
+body{
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color:var(--text-color);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    display: grid;
+    justify-content: center;
+    grid-template-columns:[line-start] 200px [content-start] 1fr [content-end] 200px [line-end] 100px;
+}
+.line{
+    position: absolute;
+    grid-column: line-start / line-end;
+    background-color: blue;
+}
+.content{
+    grid-column: content-start/content-end;
+}
+
+.title{
+    border-radius: 25px;
+
+    position: relative;
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: .6px;
+
+    transition: .1s ease;
+
+
+}
+
+.textEffect{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: color-mix(in oklab, white, blue);
+    /* background-color: aliceblue; */
+    transition: .1s; 
+}
+.textEffect:hover{
+    border: 1rem solid rgb(63, 82, 159);
+}
+.textEffect:hover > .title{
+    text-shadow: var(--mouse-x) var(--mouse-y) #fff;
+    transform: translate(var(--mouse-x), var(--mouse-y));
+
+    background: linear-gradient(90deg, #6857e3, #d250ba,#cf4444);
+    -webkit-background-clip: text;
+    background-clip: text;  
+    color:transparent;
+}
